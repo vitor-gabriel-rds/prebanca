@@ -1,0 +1,107 @@
+/* Importando a fonte que estava no seu HTML */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.login-page-container {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #86c7ff , #dffaff );
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    width: 100%;
+}
+
+/* Botão de voltar estilizado */
+.btn-voltar-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #3086f5;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+}
+
+.btn-voltar-home:hover {
+    background-color: #f0f7ff;
+}
+
+.login-section {
+    display: flex;
+    flex-direction: row; 
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 800px; 
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.boas-vindas {
+    flex: 1;
+    background-color: #3086f5; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px 0 0 15px; /* Ajustado para arredondar só o canto esquerdo */
+}
+
+.boas-vindas img {
+    width: 90px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+
+.boas-vindas h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.grupo-input {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+button {
+    padding: 12px 15px;
+    background-color: #3086f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #2870c9;
+}
+
+.grupo-input h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333333;
+}
