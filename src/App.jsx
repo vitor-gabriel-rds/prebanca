@@ -3,6 +3,7 @@ import Inicio from './Inicio';
 import Login from './Login';
 import Cadastro from './Cadastro';  
 import Produto from './Produto';
+import Carrinho from './Carrinho';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
 
         {/* Rota dinâmica: o ":id" aceita qualquer número ou texto */}
         <Route path="/produto/:id" element={<Produto />} />
+
+        {/* Rota da página do carrinho */}
+        <Route path="/carrinho" element={<Carrinho />} />
       </Routes>
     </BrowserRouter>
   );

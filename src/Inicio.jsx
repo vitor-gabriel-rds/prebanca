@@ -29,8 +29,8 @@ export default function Inicio() {
         <img src={logo} alt="Logo" className="logo" />
 
         <div className="menu">
-          <span>Novidades</span>
-          <span>Coleções</span>
+          <span>Sobre nós</span>
+          <span>Contato</span>
           <span>Roupas</span>
         </div>
 
@@ -44,10 +44,12 @@ export default function Inicio() {
         </div>
 
         <div className="icons">
-          <Link to="/login">
+          <Link to="/login" style={{ color: 'inherit' }}>
             <CircleUserRound size={30} />
           </Link>
-          <ShoppingCart size={30} />
+          <Link to="/carrinho" style={{ color: 'inherit' }}>
+            <ShoppingCart size={30} />
+          </Link>
         </div>
       </div>
 
