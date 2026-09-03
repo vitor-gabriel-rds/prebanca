@@ -29,8 +29,12 @@ export default function Inicio() {
         <img src={logo} alt="Logo" className="logo" />
 
         <div className="menu">
-          <span>Sobre nós</span>
-          <span>Contato</span>
+          <Link to="/sobre-nos" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Sobre nós</span>
+          </Link>
+          <Link to="/contato" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Contato</span>
+          </Link>
           <span>Roupas</span>
         </div>
 
@@ -55,8 +59,7 @@ export default function Inicio() {
 
       {/* banner */}
       <div className="banner">
-        
-         <Swiper
+        <Swiper
           modules={[Autoplay]}
           slidesPerView={1}
           autoplay={{ delay: 3000 }}
@@ -82,18 +85,17 @@ export default function Inicio() {
 
       <div className="produtos">
         {listaProdutos.map((item, index) => (
-        <Link to={`/produto/${item.id}`} key={index} className="card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div className="card">
-            <img src={item.img} alt={item.nome} />
-            <p className="nome">{item.nome}</p>
-            <p className="preco-antigo"><del>{item.precoAntigo}</del></p>
-            <p className="preco">{item.preco}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
+          <Link to={`/produto/${item.id}`} key={index} className="card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="card">
+              <img src={item.img} alt={item.nome} />
+              <p className="nome">{item.nome}</p>
+              <p className="preco-antigo"><del>{item.precoAntigo}</del></p>
+              <p className="preco">{item.preco}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
 
     </div>
   );
 }
-

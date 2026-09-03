@@ -4,6 +4,7 @@ import Login from './Login';
 import Cadastro from './Cadastro';  
 import Produto from './Produto';
 import Carrinho from './Carrinho';
+import SobreNos from './SobreNos';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
 
         {/* Rota da página do carrinho */}
         <Route path="/carrinho" element={<Carrinho />} />
+
+        {/* Rota da página "Sobre Nós" */}
+        <Route path="/sobre-nos" element={<SobreNos />} />
       </Routes>
     </BrowserRouter>
   );
