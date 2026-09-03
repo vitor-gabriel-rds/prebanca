@@ -56,7 +56,7 @@ export default function SobreNos() {
           </p>
 
           <p>
-            Foi assim que nasceu a Nana&Mimi, uma marca de moda infantil criada para vestir crianças de 4 a 12 anos com estilo, conforto e personalidade. Nossa proposta é trazer uma moda infantil moderna, leve e atual, com peças pensadas para acompanhar as crianças em diferentes momentos do dia — seja para uma ocasião especial, um passeio em família ou simplesmente para viver a infância com liberdade e conforto.
+            Somos uma marca de moda infantil criada para vestir crianças de 4 a 12 anos com estilo, conforto e personalidade. Nossa proposta é trazer uma moda infantil moderna, leve e atual, com peças pensadas para acompanhar as crianças em diferentes momentos do dia.
           </p>
 
           <p>
@@ -64,15 +64,11 @@ export default function SobreNos() {
           </p>
 
           <p>
-            Na Nana&Mimi, cada detalhe é pensado para oferecer uma experiência especial às famílias. Valorizamos um atendimento próximo e atencioso, buscando entender as necessidades de cada cliente e tornar cada compra um momento agradável. Além disso, trabalhamos para oferecer preços acessíveis, tornando a moda infantil moderna e de qualidade mais próxima das famílias.
-          </p>
-
-          <p className="localizacao">
-            <MapPin size={18} /> <strong>Nossa localização:</strong> [Insira aqui a localização]
+            Na Nana&Mimi, cada detalhe é pensado para oferecer uma experiência especial às famílias. Valorizamos um atendimento próximo e atencioso. Além disso, trabalhamos para oferecer preços acessíveis, tornando a moda infantil moderna e de qualidade mais próxima das famílias.
           </p>
 
           <p>
-            Hoje, a Nana&Mimi representa muito mais do que uma loja de roupas infantis. Representa um sonho que ganhou forma, cresceu com dedicação e continua sendo construído todos os dias com carinho, propósito e compromisso com nossos clientes.
+            Hoje somos muito mais do que uma loja de roupas infantis. Representa um sonho que ganhou forma e continua sendo construído todos os dias com carinho, propósito e compromisso com nossos clientes.
           </p>
 
           <p>
@@ -83,6 +79,9 @@ export default function SobreNos() {
             Nana&Mimi — Estilo para os pequenos, conforto para viver cada momento.
           </p>
         </div>
+        
+
+
       </main>
     </div>
   );
