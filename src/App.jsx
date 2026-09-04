@@ -1,37 +1,56 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Inicio from './Inicio'; 
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Inicio from './Inicio';
 import Login from './Login';
-import Cadastro from './Cadastro';  
+import Cadastro from './Cadastro';
 import Produto from './Produto';
 import Carrinho from './Carrinho';
 import SobreNos from './SobreNos';
 import Contato from './Contato';
+import Footer from './Footer';
+
+function FooterCondicional() {
+  const location = useLocation();
+
+  if (
+    location.pathname === "/login" ||
+    location.pathname === "/cadastro"
+  ) {
+    return null;
+  }
+
+  return <Footer />;
+}
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rota da página inicial */}
+
+        {/* Página inicial */}
         <Route path="/" element={<Inicio />} />
-        
-        {/* Rota da página de login */}
+
+        {/* Página de login */}
         <Route path="/login" element={<Login />} />
-        
-        {/* Rota da página de cadastro */}
+
+        {/* Página de cadastro */}
         <Route path="/cadastro" element={<Cadastro />} />
 
-        {/* Rota dinâmica: o ":id" aceita qualquer número ou texto */}
+        {/* Página do produto */}
         <Route path="/produto/:id" element={<Produto />} />
 
-        {/* Rota da página do carrinho */}
+        {/* Página do carrinho */}
         <Route path="/carrinho" element={<Carrinho />} />
 
-        {/* Rota da página "Sobre Nós" */}
+        {/* Página Sobre Nós */}
         <Route path="/sobre-nos" element={<SobreNos />} />
 
-        {/* Rota da página contato*/}
+        {/* Página de contato */}
         <Route path="/contato" element={<Contato />} />
+
       </Routes>
+
+      <FooterCondicional />
+
     </BrowserRouter>
   );
 }

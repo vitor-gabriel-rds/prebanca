@@ -101,10 +101,6 @@ export default function Contato() {
               </div>
             </div>
           </div>
-
-          <p className="slogan">
-            Nana&Mimi — Estilo para os pequenos, conforto para viver cada momento.
-          </p>
         </div>
       </main>
     </div>
