@@ -20,7 +20,9 @@ export default function Contato() {
           <Link to="/contato" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span>Contato</span>
           </Link>
-          <span>Roupas</span>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Roupas</span>
+          </Link>
         </div>
 
         <div className="container-pesquisa">
@@ -44,9 +46,6 @@ export default function Contato() {
 
       {/* Conteúdo de Contato Centralizado */}
       <main className="contato-container">
-        <Link to="/" className="btn-voltar">
-          <ArrowLeft size={18} /> Voltar para a Loja
-        </Link>
 
         <div className="contato-conteudo-central">
           <h1>Contato</h1>
@@ -65,7 +64,7 @@ export default function Contato() {
               <Phone size={22} />
               <div>
                 <strong>WhatsApp</strong>
-                <p>(11) 99999-9999</p>
+                <p>(19) 99999-9999</p>
               </div>
             </div>
 
@@ -97,7 +96,7 @@ export default function Contato() {
               <MapPin size={22} />
               <div>
                 <strong>Localização</strong>
-                <p>[Insira aqui a localização / endereço]</p>
+                <p>[localização / endereço]</p>
               </div>
             </div>
           </div>

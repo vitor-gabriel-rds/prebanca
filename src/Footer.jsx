@@ -1,4 +1,6 @@
 import "./Footer.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -12,9 +14,15 @@ function Footer() {
         </div>
 
         <nav className="footer-links">
-          <a href="/">Início</a>
-          <a href="/sobre-nos">Sobre nós</a>
-          <a href="/contato">Contato</a>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Início</span>
+          </Link>
+          <Link to="/sobre-nos" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Sobre nós</span>
+          </Link>
+          <Link to="/contato" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Contato</span>
+          </Link>
         </nav>
 
       </div>

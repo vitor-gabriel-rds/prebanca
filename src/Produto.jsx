@@ -1,8 +1,10 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Produto.css";
+import { ArrowLeft } from "lucide-react";
+import { useCarrinho } from './CarrinhoContext';
 
-// Importe as imagens novamente para a tela de detalhes
+
 import produto1 from "./assets/produto1.png";
 import produto2 from "./assets/produto2.png";
 import produto3 from "./assets/produto3.png";
@@ -16,20 +18,22 @@ const listaProdutos = [
 ];
 
 export default function Produto() {
-  const { id } = useParams(); // Pega o ID que veio na URL
+  const { carrinho, adicionarAoCarrinho } = useCarrinho(); //puxa a funçao p adc produtos
+  const { id } = useParams(); // Pega o ID  na URL
   
   // Encontra o produto correspondente ao ID da URL
   const produto = listaProdutos.find((item) => item.id === parseInt(id));
 
-  // Se não encontrar o produto (por segurança)
+  // Se não encontrar o produto
   if (!produto) {
     return <h2>Produto não encontrado!</h2>;
   }
 
   return (
     <div className="produto-detalhes-container">
-      <Link to="/" className="btn-voltar-home">← Voltar para a Loja</Link>
-      
+      <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: '#000', marginBottom: '20px', fontWeight: 'bold' }}>
+        <ArrowLeft size={20} /> Voltar
+      </Link>
       <div className="produto-wrapper">
         <div className="produto-imagem">
           <img src={produto.img} alt={produto.nome} />
@@ -49,9 +53,12 @@ export default function Produto() {
             </select>
           </div>
 
-          <button className="btn-comprar" onClick={() => alert("Produto adicionado ao carrinho! 🛒")}>
-            Comprar Agora
-          </button>
+          <button 
+              onClick={() => adicionarAoCarrinho(produto)}
+            >
+              Comprar
+            </button>
+            
         </div>
       </div>
     </div>

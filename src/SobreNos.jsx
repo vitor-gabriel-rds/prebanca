@@ -47,8 +47,14 @@ export default function SobreNos() {
           >
             <span>Contato</span>
           </Link>
-
-          <span>Roupas</span>
+          <Link to="/"
+            style={{
+              textDecoration: 'none',
+              color: 'inherit'
+            }}
+          >
+            <span>Roupas</span>
+          </Link>
         </div>
 
         <div className="container-pesquisa">
@@ -87,11 +93,6 @@ export default function SobreNos() {
 
       {/* Conteúdo da página */}
       <main className="sobre-container">
-
-        <Link to="/" className="btn-voltar">
-          <ArrowLeft size={18} />
-          Voltar para a Loja
-        </Link>
 
 
         <h1>Sobre a Nana&Mimi</h1>

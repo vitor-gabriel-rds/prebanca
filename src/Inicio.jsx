@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import "swiper/css";
 import React from "react";
 import "./Inicio.css";
+import { useCarrinho } from './CarrinhoContext';
+
 import slider1 from "./assets/slider1.png";
 import slider2 from "./assets/slider2.png";
 import produto1 from "./assets/produto1.png";
@@ -21,6 +23,10 @@ const listaProdutos = [
 ];
 
 export default function Inicio() {
+  // 2. Puxa as informações e a função do carrinho
+  const { carrinho } = useCarrinho();
+  const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+
   return (
     <div className="app">
 
@@ -35,7 +41,9 @@ export default function Inicio() {
           <Link to="/contato" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span>Contato</span>
           </Link>
-          <span>Roupas</span>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>Roupas</span>
+          </Link>
         </div>
 
         <div className="container-pesquisa">
@@ -51,8 +59,24 @@ export default function Inicio() {
           <Link to="/login" style={{ color: 'inherit' }}>
             <CircleUserRound size={30} />
           </Link>
-          <Link to="/carrinho" style={{ color: 'inherit' }}>
+          <Link to="/carrinho" style={{ color: 'inherit', position: 'relative' }}>
             <ShoppingCart size={30} />
+            {/* Bolinha com a quantidade no ícone do carrinho */}
+            {totalItens > 0 && (
+              <span style={{
+                position: 'absolute',
+                top: '-5px',
+                right: '-8px',
+                background: '#ff3b30',
+                color: 'white',
+                borderRadius: '50%',
+                padding: '2px 6px',
+                fontSize: '11px',
+                fontWeight: 'bold'
+              }}>
+                {totalItens}
+              </span>
+            )}
           </Link>
         </div>
       </div>
@@ -84,15 +108,17 @@ export default function Inicio() {
       </div>
 
       <div className="produtos">
-        {listaProdutos.map((item, index) => (
-          <Link to={`/produto/${item.id}`} key={index} className="card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="card">
-              <img src={item.img} alt={item.nome} />
-              <p className="nome">{item.nome}</p>
-              <p className="preco-antigo"><del>{item.precoAntigo}</del></p>
-              <p className="preco">{item.preco}</p>
-            </div>
-          </Link>
+        {listaProdutos.map((item) => (
+          <div key={item.id} className="card-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Link to={`/produto/${item.id}`} className="card-link" style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+              <div className="card">
+                <img src={item.img} alt={item.nome} />
+                <p className="nome">{item.nome}</p>
+                <p className="preco-antigo"><del>{item.precoAntigo}</del></p>
+                <p className="preco">{item.preco}</p>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
 

@@ -65,7 +65,7 @@
   border: 1px solid #ccc;
 }
 
-.btn-comprar {
+button {
   background-color: #de3c80; /* Cor rosa da sua navbar */
   color: white;
   border: none;
@@ -77,7 +77,7 @@
   transition: background 0.2s;
 }
 
-.btn-comprar:hover {
+button:hover {
   background-color: #be2e6a;
 }
 
