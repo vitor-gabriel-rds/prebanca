@@ -17,7 +17,6 @@
   padding: 20px;
 }
 
-/* Botão de voltar estilizado */
 .btn-voltar-home {
   position: absolute;
   top: 24px;
@@ -58,8 +57,7 @@
   align-items: center;
   padding: 45px 35px;
   text-align: center;
-  border-radius: 15px 0 0 15px; /* Ajustado para arredondar só o canto esquerdo */
-}
+  border-radius: 15px 0 0 15px; 
 
 .boas-vindas img {
   width: 80px;
@@ -121,7 +119,7 @@ input:focus {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
-button {
+.btn-enviar-login {
   background-color: #2563eb;
   color: white;
   border: none;
@@ -134,11 +132,11 @@ button {
   transition: background-color 0.2s, transform 0.1s;
 }
 
-button:hover {
+.btn-enviar-login:hover {
   background-color: #1d4ed8;
 }
 
-button:active {
+.btn-enviar-login:active {
   transform: scale(0.98);
 }
 
