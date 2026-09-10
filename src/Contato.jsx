@@ -64,7 +64,7 @@ export default function Contato() {
               <Phone size={22} />
               <div>
                 <strong>WhatsApp</strong>
-                <p>(19) 995729704</p>
+                <p>(19) 99572-9704</p>
               </div>
             </div>
 

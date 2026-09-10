@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 import logo from "./assets/logo.jpg";
-import imagemDona from "./assets/produto1.png";
+import imagemDona from "./assets/fotodona.jpg";
 
 import './SobreNos.css';
 
