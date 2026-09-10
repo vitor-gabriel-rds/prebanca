@@ -64,7 +64,7 @@ export default function Contato() {
               <Phone size={22} />
               <div>
                 <strong>WhatsApp</strong>
-                <p>(19) 99999-9999</p>
+                <p>(19) 995729704</p>
               </div>
             </div>
 
@@ -72,7 +72,7 @@ export default function Contato() {
               <Mail size={22} />
               <div>
                 <strong>E-mail</strong>
-                <p>contato@nanaemimi.com.br</p>
+                <p>nanaemimimodainfantil@gmail.com</p>
               </div>
             </div>
 
@@ -80,7 +80,7 @@ export default function Contato() {
               <Instagram size={22} />
               <div>
                 <strong>Instagram</strong>
-                <p>@nanaemimikids</p>
+                <p>@nanaemimimodainfantil</p>
               </div>
             </div>
 
@@ -88,7 +88,7 @@ export default function Contato() {
               <Clock size={22} />
               <div>
                 <strong>Horário de Atendimento</strong>
-                <p>Segunda a Sexta, das 9h às 18h</p>
+                <p>Segunda a Sábado, das 9h às 17h</p> 
               </div>
             </div>
 
@@ -96,7 +96,7 @@ export default function Contato() {
               <MapPin size={22} />
               <div>
                 <strong>Localização</strong>
-                <p>[localização / endereço]</p>
+                <p>Rua José Ramos Catarino 396 Pq Tropical - Campinas/SP</p>
               </div>
             </div>
           </div>
