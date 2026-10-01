@@ -3,7 +3,7 @@ import { Autoplay } from "swiper/modules";
 import { CircleUserRound, ShoppingCart, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import "swiper/css";
-import React from "react";
+import React, { useState } from "react";
 import "./Inicio.css";
 import { useCarrinho } from "./CarrinhoContext";
 
@@ -76,10 +76,16 @@ const listaProdutos = [
 
 export default function Inicio() {
   const { carrinho } = useCarrinho();
+  const [termoBusca, setTermoBusca] = useState("");
 
   const totalItens = carrinho.reduce(
     (acc, item) => acc + item.quantidade,
     0
+  );
+
+  // Filtra produtos ignorando maiúsculas/minúsculas
+  const produtosFiltrados = listaProdutos.filter((produto) =>
+    produto.nome.toLowerCase().includes(termoBusca.toLowerCase())
   );
 
   return (
@@ -88,11 +94,13 @@ export default function Inicio() {
       {/* BARRA DE NAVEGAÇÃO */}
       <div className="navbar">
 
-        <img
-          src={logo}
-          alt="Logo"
-          className="logo"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Logo"
+            className="logo"
+          />
+        </Link>
 
         <div className="menu">
 
@@ -135,6 +143,8 @@ export default function Inicio() {
             type="text"
             placeholder="Buscar produto..."
             className="input-pesquisa"
+            value={termoBusca}
+            onChange={(e) => setTermoBusca(e.target.value)}
           />
 
           <Search
@@ -229,131 +239,133 @@ export default function Inicio() {
 
       </div>
 
-      {/* PRIMEIRA FILEIRA */}
+      {/* EXIBIÇÃO DOS PRODUTOS */}
+      {termoBusca.trim() !== "" ? (
+        // EXIBE RESULTADOS DA BUSCA
+        <>
+          <h2 className="titulo-fileira">
+            Resultados para "{termoBusca}"
+          </h2>
 
-      <h2 className="titulo-fileira">
-        Coleção Nana & Mimi 
-      </h2>
+          <div className="produtos">
+            {produtosFiltrados.length > 0 ? (
+              produtosFiltrados.map((item, index) => (
+                <div
+                  key={`${item.id}-${index}`}
+                  className="card-wrapper"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center"
+                  }}
+                >
+                  <Link
+                    to={`/produto/${item.id}`}
+                    className="card-link"
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      width: "100%"
+                    }}
+                  >
+                    <div className="card">
+                      <img src={item.img} alt={item.nome} />
+                      <p className="nome">{item.nome}</p>
+                      <p className="preco-antigo">
+                        <del>{item.precoAntigo}</del>
+                      </p>
+                      <p className="preco">{item.preco}</p>
+                    </div>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p style={{ textAlign: "center", width: "100%", color: "#666", gridColumn: "1 / -1" }}>
+                Nenhum produto encontrado.
+              </p>
+            )}
+          </div>
+        </>
+      ) : (
+        // EXIBE A HOME PADRÃO COM AS FILEIRAS
+        <>
+          {/* PRIMEIRA FILEIRA */}
+          <h2 className="titulo-fileira">
+            Coleção Nana & Mimi 
+          </h2>
 
-      <div className="produtos">
-
-        {listaProdutos.slice(0, 4).map((item, index) => (
-
-          <div
-            key={`${item.id}-${index}`}
-            className="card-wrapper"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
-            }}
-          >
-
-            <Link
-              to={`/produto/${item.id}`}
-              className="card-link"
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                width: "100%"
-              }}
-            >
-
-              <div className="card">
-
-                <img
-                  src={item.img}
-                  alt={item.nome}
-                />
-
-                <p className="nome">
-                  {item.nome}
-                </p>
-
-                <p className="preco-antigo">
-
-                  <del>
-                    {item.precoAntigo}
-                  </del>
-
-                </p>
-
-                <p className="preco">
-                  {item.preco}
-                </p>
-
+          <div className="produtos">
+            {listaProdutos.slice(0, 4).map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="card-wrapper"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}
+              >
+                <Link
+                  to={`/produto/${item.id}`}
+                  className="card-link"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    width: "100%"
+                  }}
+                >
+                  <div className="card">
+                    <img src={item.img} alt={item.nome} />
+                    <p className="nome">{item.nome}</p>
+                    <p className="preco-antigo">
+                      <del>{item.precoAntigo}</del>
+                    </p>
+                    <p className="preco">{item.preco}</p>
+                  </div>
+                </Link>
               </div>
-
-            </Link>
-
+            ))}
           </div>
 
-        ))}
+          {/* SEGUNDA FILEIRA */}
+          <h2 className="titulo-fileira">
+            Conforto & Estilo
+          </h2>
 
-      </div>
-
-      {/* SEGUNDA FILEIRA */}
-
-      <h2 className="titulo-fileira">
-        Conforto & Estilo
-      </h2>
-
-      <div className="produtos">
-
-        {listaProdutos.slice(4, 8).map((item, index) => (
-
-          <div
-            key={`${item.id}-${index}`}
-            className="card-wrapper"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
-            }}
-          >
-
-            <Link
-              to={`/produto/${item.id}`}
-              className="card-link"
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                width: "100%"
-              }}
-            >
-
-              <div className="card">
-
-                <img
-                  src={item.img}
-                  alt={item.nome}
-                />
-
-                <p className="nome">
-                  {item.nome}
-                </p>
-
-                <p className="preco-antigo">
-
-                  <del>
-                    {item.precoAntigo}
-                  </del>
-
-                </p>
-
-                <p className="preco">
-                  {item.preco}
-                </p>
-
+          <div className="produtos">
+            {listaProdutos.slice(4, 8).map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="card-wrapper"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center"
+                }}
+              >
+                <Link
+                  to={`/produto/${item.id}`}
+                  className="card-link"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    width: "100%"
+                  }}
+                >
+                  <div className="card">
+                    <img src={item.img} alt={item.nome} />
+                    <p className="nome">{item.nome}</p>
+                    <p className="preco-antigo">
+                      <del>{item.precoAntigo}</del>
+                    </p>
+                    <p className="preco">{item.preco}</p>
+                  </div>
+                </Link>
               </div>
-
-            </Link>
-
+            ))}
           </div>
-
-        ))}
-
-      </div>
+        </>
+      )}
 
     </div>
   );
