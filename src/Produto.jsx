@@ -140,9 +140,10 @@ export default function Produto() {
             </label>
 
             <select id="tamanho">
-              <option>P</option>
-              <option>M</option>
-              <option>G</option>
+              <option>8</option>
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
             </select>
 
           </div>

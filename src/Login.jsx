@@ -23,7 +23,7 @@ export default function Login() {
         <div className="grupo-input">
           <h1>Login</h1>
           
-          <label htmlFor="username">Usuário ou Email:</label>
+          <label htmlFor="username">Usuário ou E-mail:</label>
           <input type="text" id="username" name="username" required />
 
           <label htmlFor="password">Senha:</label>

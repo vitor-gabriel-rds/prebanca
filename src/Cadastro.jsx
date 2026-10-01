@@ -40,7 +40,7 @@ export default function Cadastro() {
           <label htmlFor="username">Usuário:</label>
           <input type="text" id="username" name="username" required />
 
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">E-mail:</label>
           <input 
             type="text"
             id="email" 
